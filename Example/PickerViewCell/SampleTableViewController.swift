@@ -36,16 +36,16 @@ class SampleTableViewController: UITableViewController {
 
 extension SampleTableViewController: DatePickerTableCellDelegate {
 
-  func onDateChange(_ sender: UIDatePicker, cell: DatePickerTableViewCell) {
+  @objc func onDateChange(_ sender: UIDatePicker, cell: DatePickerTableViewCell) {
     birthLabel.text = dateFormatter.string(from: sender.date)
   }
 
-  func onDatePickerOpen(_ cell: DatePickerTableViewCell) {
+  @objc func onDatePickerOpen(_ cell: DatePickerTableViewCell) {
     birthLabel.text = birthLabel.text!.isEmpty ? dateFormatter.string(from: Date()) : birthLabel.text
     birthLabel.textColor = UIColor.red
   }
 
-  func onDatePickerClose(_ cell: DatePickerTableViewCell) {
+  @objc func onDatePickerClose(_ cell: DatePickerTableViewCell) {
     birthLabel.textColor = UIColor.gray
   }
 
@@ -55,11 +55,11 @@ extension SampleTableViewController: DatePickerTableCellDelegate {
 
 extension SampleTableViewController: PickerTableCellDataSource {
 
-  public func numberOfComponents(in pickerView: UIPickerView, forCell cell: PickerTableViewCell) -> Int {
+  @objc public func numberOfComponents(in pickerView: UIPickerView, forCell cell: PickerTableViewCell) -> Int {
     return 1
   }
 
-  public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int, forCell cell: PickerTableViewCell) -> Int {
+  @objc public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int, forCell cell: PickerTableViewCell) -> Int {
     return 2
   }
 
@@ -69,20 +69,20 @@ extension SampleTableViewController: PickerTableCellDataSource {
 
 extension SampleTableViewController: PickerTableCellDelegate {
 
-  func onPickerOpen(_ cell: PickerTableViewCell) {
+  @objc func onPickerOpen(_ cell: PickerTableViewCell) {
     genderLabel.text = genderLabel.text!.isEmpty ? "MALE" : genderLabel.text
     genderLabel.textColor = UIColor.red
   }
 
-  func onPickerClose(_ cell: PickerTableViewCell) {
+  @objc func onPickerClose(_ cell: PickerTableViewCell) {
     genderLabel.textColor = UIColor.gray
   }
 
-  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int, forCell cell: PickerTableViewCell) -> String? {
+  @objc func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int, forCell cell: PickerTableViewCell) -> String? {
     return row == 0 ? "MALE" : "FEMALE"
   }
 
-  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int, forCell cell: PickerTableViewCell) {
+  @objc func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int, forCell cell: PickerTableViewCell) {
     genderLabel.text = row == 0 ? "MALE" : "FEMALE"
   }
 

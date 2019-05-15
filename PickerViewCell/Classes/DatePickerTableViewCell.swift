@@ -5,7 +5,7 @@ open class DatePickerTableViewCell: UITableViewCell {
 
   open weak var delegate: DatePickerTableCellDelegate?
 
-  public let picker = UIDatePicker()
+  @objc public let picker = UIDatePicker()
 
   open override func awakeFromNib() {
     super.awakeFromNib()
@@ -35,7 +35,7 @@ open class DatePickerTableViewCell: UITableViewCell {
     return super.resignFirstResponder()
   }
 
-  func onDateChanged(_ sender: UIDatePicker) {
+  @objc func onDateChanged(_ sender: UIDatePicker) {
     delegate?.onDateChange(sender, cell: self)
   }
 

@@ -6,7 +6,7 @@ open class PickerTableViewCell: UITableViewCell {
   open weak var dataSource: PickerTableCellDataSource?
   open weak var delegate: PickerTableCellDelegate?
 
-  public let picker = UIPickerView()
+  @objc public let picker = UIPickerView()
 
   open override func awakeFromNib() {
     super.awakeFromNib()
